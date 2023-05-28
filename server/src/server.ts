@@ -16,7 +16,7 @@ app.register(multipart);
 
 app.register(require("@fastify/static"), {
     root: resolve(__dirname, "../uploads"),
-    prefix: "uploads",
+    prefix: "/uploads",
 });
 
 app.register(cors, {

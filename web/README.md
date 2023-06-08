@@ -1,34 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src="./src/assets/readme.png" alt="readme image" />
+
+### Hi there! 👋
+
+> A time capsule that allows the user to relive precious moments of their lives.
+>
+> With this app you can record a memory adding a description and an image for that incredible moment. Inside your account you can access a timeline with all the registered memories.
+>
+> The objective of this project was to improve my UX and UI skills, the improvement of tools for web development such as Next, React, Tailwind, Typescript and also user authentication with github's OAuth service.
+>
+> [Prototype in Figma](https://www.figma.com/file/q2RnMH6iSBp3CWe1DpIo2W/C%C3%A1psula-do-tempo-%E2%80%A2-Trilha-Ignite-(Community)?type=design)
+
+## What is inside?
+
+- [NextJS](https://nextjs.org/)
+- [ReactJS](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Lucide React](https://lucide.dev/)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [Eslint](https://eslint.org)
+- [Prettier](https://prettier.io)
+- [js-cookie](https://github.com/js-cookie/js-cookie)
+- [jwt-decode](https://www.npmjs.com/package/jwt-decode)
 
 ## Getting Started
 
-First, run the development server:
+### Install dependencies:
+
+```bash
+pnpm install
+```
+
+or
+
+```bash
+yarn
+```
+
+or
+
+```bash
+npm install
+```
+
+### Run development server
+
+```bash
+pnpm dev
+```
+
+or
+
+```bash
+yarn dev
+```
+
+or
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+└── src
+    ├── app 
+        ├── api
+        ├── memories
+    ├── assets
+    ├── components
+    ├── lib
+```
 
-## Learn More
+| Folder         | Description                                          |
+| ----------     | -------------------------------------------          |
+| **app**        | Webapp pages                                         |
+| **api**        | Api routes and logic                                 |
+| **memories**   | Memories pages                                       |
+| **assets**     | Images and static files for application              |
+| **components** | Pages components                                     |
+| **lib**        | Configuration of libraries used in the project       |
 
-To learn more about Next.js, take a look at the following resources:
+## Commands
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `dev`: run development server
+- `build`: creates the production build version
+- `lint`: runs the linter in all components and pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## 📱 Mobile version
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[Time-capsule App](https://github.com/arthurlbo/time-capsule/tree/main/mobile)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🚀 Api
+
+[Time-capsule Api](https://github.com/arthurlbo/time-capsule/tree/main/server)
+
+<p align="center">Made with 🤍 by Arthur</p>

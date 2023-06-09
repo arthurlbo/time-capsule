@@ -15,6 +15,8 @@
 - [Fastify](https://www.fastify.io/)
 - [Fastify JWT](https://github.com/fastify/fastify-jwt)
 - [Fastify Multipart](https://github.com/fastify/fastify-multipart)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [GitHub OAuth](https://docs.github.com/pt/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)
 - [Zod](https://zod.dev/)
 
 ## Getting Started

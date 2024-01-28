@@ -39,28 +39,28 @@ export default async function Home() {
     }
 
     return (
-        <div className="flex flex-col gap-10 p-8">
-            {memories.map((memory) => (
-                <div key={memory.id} className="space-y-4">
-                    <time className="-ml-8 flex items-center gap-2 text-sm text-gray-100 before:h-px before:w-5 before:bg-gray-50">
-                        {dayjs(memory.createdAt).format("D[ de ]MMMM[, ]YYYY")}
-                    </time>
-                    <Image
-                        src={memory.coverUrl}
-                        alt=""
-                        width={592}
-                        height={280}
-                        className="aspect-video h-full rounded-lg object-cover"
-                    />
-                    <p className="text-lg leading-relaxed text-gray-100">{memory.excerpt}</p>
-                    <Link
-                        className="flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100"
-                        href={`/memories/${memory.id}`}
-                    >
-                        Ler mais <ArrowRight className="h-4 w-4" />
-                    </Link>
-                </div>
-            ))}
-        </div>
+        <div className="flex flex-col gap-8 p-8">
+        {memories.map((memory: Memory) => {
+          return (
+            <div key={memory.id} className="flex flex-col w-full gap-6">
+              <time className="flex items-center gap-2 text-sm text-gray-100 -ml-8 before:h-px before:w-4 before:bg-gray-50">
+                {dayjs(memory.createdAt).format("DD[ de ]MMMM[, ]YYYY")}
+              </time>
+              <Image
+                src={memory.coverUrl}
+                alt=""
+                width={600}
+                height={600}
+                className="w-full aspect-video object-cover rounded-lg"
+              />
+              <p className="text-lg leading-relaxed text-gray-100 text-justify">{memory.excerpt}</p>
+              <Link href={`/memories/${memory.id}`}className="flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100">
+                Ler mais
+                <ArrowRight className="w-4 h-4"/>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     );
 }

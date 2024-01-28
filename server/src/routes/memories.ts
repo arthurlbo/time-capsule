@@ -17,11 +17,12 @@ export async function memoriesRoutes(app: FastifyInstance) {
                 createdAt: "asc",
             },
         });
+
         return memories.map((memory) => {
             return {
                 id: memory.id,
                 coverUrl: memory.coverUrl,
-                excerpt: memory.content.substring(0, 115).concat("..."),
+                excerpt: memory.content.length > 115 ? memory.content.slice(0, 115) + "..." : memory.content,
                 createdAt: memory.createdAt,
             };
         });

@@ -1,4 +1,4 @@
-import { ImageBackground } from "react-native";
+import { ImageBackground, View } from "react-native";
 import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { SplashScreen, Stack } from "expo-router";
@@ -16,7 +16,7 @@ const StyledStripes = styled(Stripes);
 export default function Layout() {
     const [isUserAuthenticated, setIsUserAuthenticated] = useState<null | boolean>(null);
 
-    const [hasLoadedFonts] = useFonts({
+    const [hasLoadedFonts, fontError] = useFonts({
         Roboto_400Regular,
         Roboto_700Bold,
         BaiJamjuree_700Bold,
@@ -28,9 +28,17 @@ export default function Layout() {
         });
     }, []);
 
-    if (!hasLoadedFonts) {
-        return <SplashScreen />;
-    }
+    useEffect(() => {
+        if (hasLoadedFonts || fontError) {
+          // Hide the splash screen after the fonts have loaded (or an error was returned) and the UI is ready.
+          SplashScreen.hideAsync();
+        }
+      }, [hasLoadedFonts, fontError]);
+    
+      // Prevent rendering until the font has loaded or an error was returned
+      if (!hasLoadedFonts && !fontError) {
+        return null;
+      }
 
     return (
         <ImageBackground
@@ -38,6 +46,7 @@ export default function Layout() {
             imageStyle={{ position: "absolute", left: "-100%" }}
             className="relative flex-1 bg-gray-900"
         >
+
             <StyledStripes className="absolute left-2" />
             <Stack
                 screenOptions={{

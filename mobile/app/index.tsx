@@ -1,5 +1,5 @@
-import { Text, TouchableOpacity, View } from "react-native";
 import { useEffect } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 import { useAuthRequest, makeRedirectUri } from "expo-auth-session";
 import { useRouter } from "expo-router";
 import * as SecureStore from "expo-secure-store";
@@ -11,7 +11,7 @@ import NlwLogo from "../src/assets/logo.svg";
 const discovery = {
     authorizationEndpoint: "https://github.com/login/oauth/authorize",
     tokenEndpoint: "https://github.com/login/oauth/access_token",
-    revocationEndpoint: "https://github.com/settings/connections/applications/2ad06786f2136d25eaf0",
+    revocationEndpoint: `https://github.com/settings/connections/applications/${process.env.EXPO_PUBLIC_GITHUB_CLIENT_ID}`,
 };
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
 
     const [, response, signInWithGithub] = useAuthRequest(
         {
-            clientId: "2ad06786f2136d25eaf0",
+            clientId: process.env.EXPO_PUBLIC_GITHUB_CLIENT_ID,
             scopes: ["identity"],
             redirectUri: makeRedirectUri({
                 scheme: "spacetime",
@@ -39,13 +39,12 @@ export default function App() {
     };
 
     useEffect(() => {
-        /*
-        Verifica qual é a uri redirect para rodar a aplicação
-        console.log(
-            makeRedirectUri({
-                scheme: "spacetime",
-            }),
-        );*/
+        // Verifica qual é a uri redirect para rodar a aplicação
+        // console.log(
+        //     makeRedirectUri({
+        //         scheme: "spacetime",
+        //     }),
+        // );
 
         if (response?.type === "success") {
             const { code } = response.params;

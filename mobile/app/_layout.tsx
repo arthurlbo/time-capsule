@@ -1,4 +1,4 @@
-import { ImageBackground, View } from "react-native";
+import { ImageBackground } from "react-native";
 import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { SplashScreen, Stack } from "expo-router";
@@ -39,11 +39,11 @@ export default function Layout() {
       if (!hasLoadedFonts && !fontError) {
         return null;
       }
-
+ 
     return (
         <ImageBackground
             source={blurBg}
-            imageStyle={{ position: "absolute", left: "-100%" }}
+            style={{ position: "absolute", width: "100%", height: "100%" }}
             className="relative flex-1 bg-gray-900"
         >
 

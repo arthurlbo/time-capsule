@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { ArrowLeft, Image as IconImage } from "lucide-react-native";
 import { Image, ScrollView, Switch, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Link, useRouter } from "expo-router";
 import * as ImagePicker from "expo-image-picker";
 import * as SecureStore from "expo-secure-store";
-import Icon from "@expo/vector-icons/Feather";
 
 import { api } from "../src/lib/api";
 
@@ -35,6 +35,10 @@ const NewMemory = () => {
 
     const handleCreateMemory = async () => {
         const token = await SecureStore.getItemAsync("token");
+
+        if (!preview) {
+            return alert("Você precisa adicionar uma foto ou video de capa para criar uma memória");
+        }
 
         let coverUrl = "";
 
@@ -82,7 +86,7 @@ const NewMemory = () => {
                         activeOpacity={0.7}
                         className="h-10 w-10 items-center justify-center rounded-full bg-purple-500"
                     >
-                        <Icon name="arrow-left" size={16} color="#fff" />
+                        <ArrowLeft size={16} color="#fff" />
                     </TouchableOpacity>
                 </Link>
             </View>
@@ -105,7 +109,7 @@ const NewMemory = () => {
                         <Image source={{ uri: preview }} className="h-full w-full rounded-lg object-cover" />
                     ) : (
                         <View className="flex-row items-center gap-2">
-                            <Icon name="image" color="#fff" />
+                            <IconImage color="#fff" />
                             <Text className="font-body text-sm text-gray-200">Adicionar foto ou video de capa</Text>
                         </View>
                     )}

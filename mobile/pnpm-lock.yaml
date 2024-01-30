@@ -14,9 +14,6 @@ dependencies:
   '@expo-google-fonts/roboto':
     specifier: ^0.2.3
     version: 0.2.3
-  '@expo/vector-icons':
-    specifier: ^14.0.0
-    version: 14.0.0
   '@types/react':
     specifier: ~18.2.48
     version: 18.2.48
@@ -56,6 +53,12 @@ dependencies:
   expo-status-bar:
     specifier: ~1.11.1
     version: 1.11.1
+  expo-web-browser:
+    specifier: ^12.8.2
+    version: 12.8.2(expo@50.0.4)
+  lucide-react-native:
+    specifier: ^0.319.0
+    version: 0.319.0(react-native-svg@14.1.0)(react-native@0.73.2)(react@18.2.0)
   nativewind:
     specifier: ^2.0.11
     version: 2.0.11(react@18.2.0)(tailwindcss@3.3.2)
@@ -63,7 +66,7 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0
   react-native:
-    specifier: 0.73.2
+    specifier: ~0.73.2
     version: 0.73.2(@babel/core@7.23.9)(@babel/preset-env@7.23.9)(react@18.2.0)
   react-native-gesture-handler:
     specifier: ~2.14.1
@@ -85,12 +88,9 @@ devDependencies:
   '@babel/core':
     specifier: ^7.23.9
     version: 7.23.9
-  '@react-native/assets-registry':
-    specifier: ^0.74.0
-    version: 0.74.0
   '@types/node':
     specifier: ^20.11.10
-    version: 20.11.10
+    version: 20.11.12
   prettier:
     specifier: ^3.2.4
     version: 3.2.4
@@ -1935,7 +1935,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       jest-mock: 29.7.0
 
   /@jest/fake-timers@29.7.0:
@@ -1944,7 +1944,7 @@ packages:
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -1961,7 +1961,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       '@types/yargs': 15.0.19
       chalk: 4.1.2
 
@@ -1972,7 +1972,7 @@ packages:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       '@types/yargs': 17.0.32
       chalk: 4.1.2
 
@@ -2134,7 +2134,7 @@ packages:
       '@react-native-community/cli-tools': 12.3.0
       chalk: 4.1.2
       execa: 5.1.1
-      fast-xml-parser: 4.3.3
+      fast-xml-parser: 4.3.4
       glob: 7.2.3
       logkitty: 0.7.1
     transitivePeerDependencies:
@@ -2146,7 +2146,7 @@ packages:
       '@react-native-community/cli-tools': 12.3.0
       chalk: 4.1.2
       execa: 5.1.1
-      fast-xml-parser: 4.3.3
+      fast-xml-parser: 4.3.4
       glob: 7.2.3
       ora: 5.4.1
     transitivePeerDependencies:
@@ -2226,11 +2226,6 @@ packages:
   /@react-native/assets-registry@0.73.1:
     resolution: {integrity: sha512-2FgAbU7uKM5SbbW9QptPPZx8N9Ke2L7bsHb+EhAanZjFZunA9PaYtyjUQ1s7HD+zDVqOQIvjkpXSv7Kejd2tqg==}
     engines: {node: '>=18'}
-
-  /@react-native/assets-registry@0.74.0:
-    resolution: {integrity: sha512-I8Yy6bCKU5R4qZX4jfXsAPsHyuGHlulbnbG3NqO9JgZ3T2DJxJiZE39rHORP0trLnRh0rIeRcs4Mc14fAE6hrw==}
-    engines: {node: '>=18'}
-    dev: true
 
   /@react-native/babel-plugin-codegen@0.73.2(@babel/preset-env@7.23.9):
     resolution: {integrity: sha512-PadyFZWVaWXIBP7Q5dgEL7eAd7tnsgsLjoHJB1hIRZZuVUg1Zqe3nULwC7RFAqOtr5Qx7KXChkFFcKQ3WnZzGw==}
@@ -2814,8 +2809,8 @@ packages:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
     dev: false
 
-  /@types/node@20.11.10:
-    resolution: {integrity: sha512-rZEfe/hJSGYmdfX9tvcPMYeYPW2sNl50nsw4jZmRcaG0HIAb0WYEpsB05GOb53vjqpyE9GUhlDQ4jLSoB5q9kg==}
+  /@types/node@20.11.12:
+    resolution: {integrity: sha512-N/Az9BkJ6IWCJ3GeKea/vMQLfV37ci1fApx2x5UQvfa0N5OTjR/c17hEkt6Q0LSF6XSF7hcgrd/DOobibskPNw==}
     dependencies:
       undici-types: 5.26.5
 
@@ -3263,7 +3258,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001581
-      electron-to-chromium: 1.4.650
+      electron-to-chromium: 1.4.651
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
 
@@ -3421,7 +3416,7 @@ packages:
     engines: {node: '>=12.13.0'}
     hasBin: true
     dependencies:
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -3431,7 +3426,7 @@ packages:
   /chromium-edge-launcher@1.0.0:
     resolution: {integrity: sha512-pgtgjNKZ7i5U++1g1PWv75umkHvhVTDOQIZ+sjeUX9483S7Y6MUvO0lrd7ShGlQlFHMN4SwKTCq/X8hWrbv2KA==}
     dependencies:
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -3957,8 +3952,8 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /electron-to-chromium@1.4.650:
-    resolution: {integrity: sha512-sYSQhJCJa4aGA1wYol5cMQgekDBlbVfTRavlGZVr3WZpDdOPcp6a6xUnFfrt8TqZhsBYYbDxJZCjGfHuGupCRQ==}
+  /electron-to-chromium@1.4.651:
+    resolution: {integrity: sha512-jjks7Xx+4I7dslwsbaFocSwqBbGHQmuXBJUK9QBZTIrzPq3pzn6Uf2szFSP728FtLYE3ldiccmlkOM/zhGKCpA==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4332,8 +4327,8 @@ packages:
       merge2: 1.4.1
       micromatch: 4.0.5
 
-  /fast-xml-parser@4.3.3:
-    resolution: {integrity: sha512-coV/D1MhrShMvU6D0I+VAK3umz6hUaxxhL0yp/9RjfiYUfAv14rDhGQL+PLForhMdr0wq3PiV07WtkkNjJjNHg==}
+  /fast-xml-parser@4.3.4:
+    resolution: {integrity: sha512-utnwm92SyozgA3hhH2I8qldf2lBqm6qHOICawRNRFu1qMe3+oqr+GcXjGqTmXTMGE5T4eC03kr/rlh5C1IRdZA==}
     hasBin: true
     dependencies:
       strnum: 1.0.5
@@ -5037,7 +5032,7 @@ packages:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -5064,7 +5059,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       jest-util: 29.7.0
 
   /jest-util@29.7.0:
@@ -5072,7 +5067,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -5093,7 +5088,7 @@ packages:
     resolution: {integrity: sha512-eIz2msL/EzL9UFTFFx7jBTkeZfku0yUAyZZZmJ93H2TYEiroIx2PQjEXcwYtYl8zXCxb+PAmA2hLIt/6ZEkPHw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@types/node': 20.11.10
+      '@types/node': 20.11.12
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -5418,6 +5413,18 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /lucide-react-native@0.319.0(react-native-svg@14.1.0)(react-native@0.73.2)(react@18.2.0):
+    resolution: {integrity: sha512-DrboDAGz2N5bk+Cpr2Owgx9LQaJmOtbDFCSTPrAvdrUsLQe1CUYgTjr0mKvwoMeBvR6P5sUxd91wgIh89TvsRw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+      react-native: '*'
+      react-native-svg: ^12.0.0 || ^13.0.0 || ^14.0.0
+    dependencies:
+      react: 18.2.0
+      react-native: 0.73.2(@babel/core@7.23.9)(@babel/preset-env@7.23.9)(react@18.2.0)
+      react-native-svg: 14.1.0(react-native@0.73.2)(react@18.2.0)
+    dev: false
 
   /make-dir@2.1.0:
     resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { ArrowRight, LogOut, Plus } from "lucide-react-native";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import * as SecureStore from "expo-secure-store";
 import { Link, useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import Icon from "@expo/vector-icons/Feather";
 import dayjs from "dayjs";
 import ptBr from "dayjs/locale/pt-br";
 
@@ -52,7 +52,7 @@ const Memories = () => {
                         onPress={signOut}
                         className="h-10 w-10 items-center justify-center rounded-full bg-red-500"
                     >
-                        <Icon name="log-out" size={16} color="#fff" />
+                        <LogOut size={16} color="#fff" />
                     </TouchableOpacity>
 
                     <Link href="/new" asChild>
@@ -60,37 +60,44 @@ const Memories = () => {
                             activeOpacity={0.7}
                             className="h-10 w-10 items-center justify-center rounded-full bg-green-500"
                         >
-                            <Icon name="plus" size={16} color="#000" />
+                            <Plus size={16} color="#fff" />
                         </TouchableOpacity>
                     </Link>
                 </View>
             </View>
 
             <View className="mt-6 space-y-10">
-                {memories.map((memory) => (
-                    <View key={memory.id} className="space-y-4">
-                        <View className="flex-row items-center gap-2">
-                            <View className="h-px w-5 bg-gray-50" />
-                            <Text className="font-body text-xs text-gray-100">
-                                {dayjs(memory.createdAt).format("D[ de ]MMMM[, ]YYYY")}
-                            </Text>
+                {memories.length > 0 ? (
+                    memories.map((memory) => (
+                        <View key={memory.id} className="space-y-4">
+                            <View className="flex-row items-center gap-2">
+                                <View className="h-px w-5 bg-gray-50" />
+                                <Text className="font-body text-xs text-gray-100">
+                                    {dayjs(memory.createdAt).format("D[ de ]MMMM[, ]YYYY")}
+                                </Text>
+                            </View>
+                            <View className="space-y-4 px-8">
+                                <Image
+                                    source={{ uri: memory.coverUrl }}
+                                    className="aspect-video w-full rounded-lg"
+                                    alt=""
+                                />
+                                <Text className="font-body text-base leading-relaxed text-gray-100">{memory.excerpt}</Text>
+                                <Link href={`/memories/${memory.id}`} asChild>
+                                    <TouchableOpacity activeOpacity={0.7} className="flex-row items-center gap-2">
+                                        <Text className="font-body text-sm text-gray-200">Ler mais</Text>
+                                        <ArrowRight size={16} color="#9e9ea0" />
+                                    </TouchableOpacity>
+                                </Link>
+                            </View>
                         </View>
-                        <View className="space-y-4 px-8">
-                            <Image
-                                source={{ uri: memory.coverUrl }}
-                                className="aspect-video w-full rounded-lg"
-                                alt=""
-                            />
-                            <Text className="font-body text-base leading-relaxed text-gray-100">{memory.excerpt}</Text>
-                            <Link href={`/memories/${memory.id}`} asChild>
-                                <TouchableOpacity activeOpacity={0.7} className="flex-row items-center gap-2">
-                                    <Text className="font-body text-sm text-gray-200">Ler mais</Text>
-                                    <Icon name="arrow-right" size={16} color="#9e9ea0" />
-                                </TouchableOpacity>
-                            </Link>
-                        </View>
+                    ))
+                )
+                : (
+                    <View className="flex-1 items-center justify-center gap-6">
+                        <Text className="text-xl font-semibold text-gray-100 text-center w-80">Você ainda não possui nenhuma lembrança cadastrada!</Text>
                     </View>
-                ))}
+                )}
             </View>
         </ScrollView>
     );
